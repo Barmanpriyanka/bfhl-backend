@@ -6,6 +6,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Root route to check if server is running
+app.get("/", (req, res) => {
+    res.send("Backend is running successfully!");
+});
+
+// Import bfhl route from routes folder
 const bfhlRoutes = require('./routes/bfhl');
 app.use('/bfhl', bfhlRoutes);
 
